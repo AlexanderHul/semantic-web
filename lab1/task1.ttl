@@ -1,0 +1,72 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix ex: <http://example.org/> .
+
+# Латунь – це сплав міді та цинку
+ex:Brass rdf:type "Alloy" ;
+         ex:hasComponent wd:Q753 ;
+         ex:hasComponent wd:Q26213105 .
+
+# SPIEGEL — німецький інформаційний журнал зі штаб-квартирою в Гамбурзі
+ex:SPIEGEL rdf:type ex:Magazine ;
+           ex:country wd:Q183 ;
+           ex:headquarter wd:Q1055 .
+
+# Есе складається зі вступу, основної частини та висновку
+ex:Essay rdfs:Class "Document" ;
+    ex:hasComponent [
+        rdf:type rdf:Seq ;
+        rdf:_1 ex:Introduction ;
+        rdf:_2 ex:MainBody ;
+        rdf:_3 ex:Conclusion
+    ] .
+
+# Павло знає, що Олена живе в Полтаві
+ex:Pavlo rdf:type foaf:Person ;
+    foaf:name "Pavlo" ;
+    ex:knows [ rdf:type rdf:Statement ;
+        rdf:subject ex:Olena ;
+        rdf:predicate geo:location ;
+        rdf:object wd:Q156747
+    ] .
+
+# Олена каже, що її друг живе в Києві
+ex:Olena rdf:type foaf:Person ;
+    foaf:name "Olena" ;
+    ex:says [ rdf:type rdf:Statement ;
+        rdf:subject [
+            rdf:type foaf:Person ;
+            rdfs:label "Olena's friend"
+        ] ;
+        rdf:predicate geo:location ;
+        rdf:object wd:Q1899
+    ] .
+
+# Стефан думає, що Анна знає, що він знає її батька
+ex:Stefan rdf:type foaf:Person ;
+    foaf:name "Stefan" ;
+    ex:thinks [ rdf:type rdf:Statement ;
+        rdf:subject ex:Anna ;
+        rdf:predicate foaf:knows ;
+        rdf:object [ rdf:type rdf:Statement ;
+            rdf:subject ex:Stefan ;
+            rdf:predicate foaf:knows ;
+            rdf:object [
+                rdf:type foaf:Person ;
+                rdfs:label "Anna's father" ;
+                foaf:name "Anna's father"
+            ]
+        ]
+    ] .
+
+# Іван знає, що Рим є столицею Італії
+ex:Ivan rdf:type foaf:Person ;
+    foaf:name "Ivan" ;
+    ex:knows [ rdf:type rdf:Statement ;
+        rdf:subject wd:Q220 ;
+        rdf:predicate ex:isCapitalOf ;
+        rdf:object wd:Q38
+    ] .

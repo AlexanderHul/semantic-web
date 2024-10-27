@@ -1,0 +1,214 @@
+[
+  {
+    "@id": "http://example.org/emma_education",
+    "@type": [
+      "http://example.org/Education"
+    ],
+    "http://example.org/degree": [
+      {
+        "@value": "Master"
+      }
+    ],
+    "http://example.org/field": [
+      {
+        "@value": "Chemistry"
+      }
+    ],
+    "http://example.org/graduationYear": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+        "@value": "2015"
+      }
+    ],
+    "http://example.org/institution": [
+      {
+        "@value": "University of Valencia"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/meeting",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ]
+  },
+  {
+    "@id": "http://example.org/education",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ]
+  },
+  {
+    "@id": "http://example.org/meeting_2014_08_paris",
+    "@type": [
+      "http://example.org/Meeting"
+    ],
+    "http://example.org/date": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#gYearMonth",
+        "@value": "2014-08"
+      }
+    ],
+    "http://example.org/location": [
+      {
+        "@value": "Paris"
+      }
+    ],
+    "http://example.org/participant": [
+      {
+        "@id": "http://example.org/kade"
+      },
+      {
+        "@id": "http://example.org/emma"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/kade_education",
+    "http://example.org/degree": [
+      {
+        "@value": "Bachelor"
+      }
+    ],
+    "http://example.org/field": [
+      {
+        "@value": "Biology"
+      }
+    ],
+    "http://example.org/graduationYear": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+        "@value": "2011"
+      }
+    ],
+    "http://example.org/institution": [
+      {
+        "@value": "University of California"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/emma",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://example.org/expertise": [
+      {
+        "@value": "waste management"
+      },
+      {
+        "@value": "toxic waste"
+      },
+      {
+        "@value": "air pollution"
+      }
+    ],
+    "http://example.org/hasEducation": [
+      {
+        "@id": "http://example.org/emma_education"
+      }
+    ],
+    "http://example.org/hasInterest": [
+      {
+        "@value": "cycling"
+      },
+      {
+        "@value": "music"
+      },
+      {
+        "@value": "traveling"
+      }
+    ],
+    "http://example.org/participatedIn": [
+      {
+        "@id": "http://example.org/meeting_2014_08_paris"
+      }
+    ],
+    "http://example.org/visited": [
+      {
+        "@value": "Portugal"
+      },
+      {
+        "@value": "Italy"
+      },
+      {
+        "@value": "France"
+      },
+      {
+        "@value": "Germany"
+      },
+      {
+        "@value": "Denmark"
+      },
+      {
+        "@value": "Sweden"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/knows": [
+      {
+        "@id": "http://example.org/kade"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Emma"
+      }
+    ]
+  },
+  {
+    "@id": "http://example.org/kade",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://example.org/hasEducation": [
+      {
+        "@id": "http://example.org/kade_education"
+      }
+    ],
+    "http://example.org/hasInterest": [
+      {
+        "@value": "birds"
+      },
+      {
+        "@value": "ecology"
+      },
+      {
+        "@value": "environment"
+      },
+      {
+        "@value": "photography"
+      },
+      {
+        "@value": "traveling"
+      }
+    ],
+    "http://example.org/participatedIn": [
+      {
+        "@id": "http://example.org/meeting_2014_08_paris"
+      }
+    ],
+    "http://example.org/visited": [
+      {
+        "@value": "Canada"
+      },
+      {
+        "@value": "France"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/based_near": [
+      {
+        "@value": "1516 Henry Street, Berkeley, California 94709, USA"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/knows": [
+      {
+        "@id": "http://example.org/emma"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Kade"
+      }
+    ]
+  }
+]

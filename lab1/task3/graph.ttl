@@ -1,0 +1,60 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <http://example.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:education a rdfs:Class .
+
+ns1:meeting a rdfs:Class .
+
+ns1:emma_education a ns1:Education ;
+    ns1:degree "Master" ;
+    ns1:field "Chemistry" ;
+    ns1:graduationYear "2015"^^xsd:gYear ;
+    ns1:institution "University of Valencia" .
+
+ns1:kade_education ns1:degree "Bachelor" ;
+    ns1:field "Biology" ;
+    ns1:graduationYear "2011"^^xsd:gYear ;
+    ns1:institution "University of California" .
+
+ns1:emma a foaf:Person ;
+    ns1:expertise "air pollution",
+        "toxic waste",
+        "waste management" ;
+    ns1:hasEducation ns1:emma_education ;
+    ns1:hasInterest "cycling",
+        "music",
+        "traveling" ;
+    ns1:participatedIn ns1:meeting_2014_08_paris ;
+    ns1:visited "Denmark",
+        "France",
+        "Germany",
+        "Italy",
+        "Portugal",
+        "Sweden" ;
+    foaf:knows ns1:kade ;
+    foaf:name "Emma" ;
+    foaf:age 36.
+
+ns1:kade a foaf:Person ;
+    ns1:hasEducation ns1:kade_education ;
+    ns1:hasInterest "birds",
+        "ecology",
+        "environment",
+        "photography",
+        "traveling" ;
+    ns1:participatedIn ns1:meeting_2014_08_paris ;
+    ns1:visited "Canada",
+        "France",
+        "Germany";
+    foaf:based_near "1516 Henry Street, Berkeley, California 94709, USA" ;
+    foaf:knows ns1:emma ;
+    foaf:name "Kade" .
+
+ns1:meeting_2014_08_paris a ns1:Meeting ;
+    ns1:date "2014-08"^^xsd:gYearMonth ;
+    ns1:location "Paris" ;
+    ns1:participant ns1:emma,
+        ns1:kade .
+

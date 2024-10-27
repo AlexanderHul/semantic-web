@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:ns1="http://example.org/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:about="http://example.org/kade">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Kade</foaf:name>
+    <foaf:based_near>1516 Henry Street, Berkeley, California 94709, USA</foaf:based_near>
+    <ns1:hasEducation rdf:resource="http://example.org/kade_education"/>
+    <ns1:hasInterest>birds</ns1:hasInterest>
+    <ns1:hasInterest>ecology</ns1:hasInterest>
+    <ns1:hasInterest>environment</ns1:hasInterest>
+    <ns1:hasInterest>photography</ns1:hasInterest>
+    <ns1:hasInterest>traveling</ns1:hasInterest>
+    <ns1:visited>Canada</ns1:visited>
+    <ns1:visited>France</ns1:visited>
+    <ns1:participatedIn rdf:resource="http://example.org/meeting_2014_08_paris"/>
+    <foaf:knows rdf:resource="http://example.org/emma"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/emma">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Emma</foaf:name>
+    <ns1:hasEducation rdf:resource="http://example.org/emma_education"/>
+    <ns1:expertise>waste management</ns1:expertise>
+    <ns1:expertise>toxic waste</ns1:expertise>
+    <ns1:expertise>air pollution</ns1:expertise>
+    <ns1:hasInterest>cycling</ns1:hasInterest>
+    <ns1:hasInterest>music</ns1:hasInterest>
+    <ns1:hasInterest>traveling</ns1:hasInterest>
+    <ns1:visited>Portugal</ns1:visited>
+    <ns1:visited>Italy</ns1:visited>
+    <ns1:visited>France</ns1:visited>
+    <ns1:visited>Germany</ns1:visited>
+    <ns1:visited>Denmark</ns1:visited>
+    <ns1:visited>Sweden</ns1:visited>
+    <ns1:participatedIn rdf:resource="http://example.org/meeting_2014_08_paris"/>
+    <foaf:knows rdf:resource="http://example.org/kade"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/emma_education">
+    <rdf:type rdf:resource="http://example.org/Education"/>
+    <ns1:degree>Master</ns1:degree>
+    <ns1:field>Chemistry</ns1:field>
+    <ns1:institution>University of Valencia</ns1:institution>
+    <ns1:graduationYear rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">2015</ns1:graduationYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/meeting_2014_08_paris">
+    <rdf:type rdf:resource="http://example.org/Meeting"/>
+    <ns1:location>Paris</ns1:location>
+    <ns1:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYearMonth">2014-08</ns1:date>
+    <ns1:participant rdf:resource="http://example.org/kade"/>
+    <ns1:participant rdf:resource="http://example.org/emma"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/kade_education">
+    <ns1:degree>Bachelor</ns1:degree>
+    <ns1:field>Biology</ns1:field>
+    <ns1:institution>University of California</ns1:institution>
+    <ns1:graduationYear rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">2011</ns1:graduationYear>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/meeting">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/education">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+</rdf:RDF>
