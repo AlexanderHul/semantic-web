@@ -1,0 +1,15 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT distinct ?country (SAMPLE(?name) as ?nameSample) ?population
+WHERE {
+  ?country p:P31/ps:P31 wd:Q6256 .
+  ?country wdt:P361 wd:Q27468 .
+  ?country wdt:P1082 ?population.
+  OPTIONAL { ?country rdfs:label ?name. FILTER(LANG(?name) = "en") }
+}
+GROUP BY ?country ?instanceOf ?population
+ORDER BY DESC(?population)

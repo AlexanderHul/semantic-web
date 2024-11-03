@@ -1,0 +1,13 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+
+SELECT DISTINCT ?person ?personLabel ?birthDate ?deathDate WHERE {
+  ?person wdt:P31 wd:Q5;
+    wdt:P166 wd:Q38104;
+    wdt:P569 ?birthDate.
+  OPTIONAL { ?person wdt:P570 ?deathDate. }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+ORDER BY (?birthDate)

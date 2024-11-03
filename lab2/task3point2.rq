@@ -1,0 +1,18 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+
+SELECT ?university ?universityLabel (COUNT(DISTINCT ?person) as ?laureateCount)
+WHERE {
+  ?person wdt:P31 wd:Q5;
+          wdt:P166 wd:Q38104;
+          wdt:P69 ?university.
+
+  ?university wdt:P31 wd:Q3918.
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+GROUP BY ?university ?universityLabel
+ORDER BY DESC(?laureateCount)
+LIMIT 10

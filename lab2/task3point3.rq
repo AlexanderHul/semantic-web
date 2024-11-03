@@ -1,0 +1,20 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+
+SELECT (COUNT(DISTINCT ?person) as ?immigrantCount)
+WHERE {
+  ?person wdt:P31 wd:Q5;
+          wdt:P166 wd:Q38104;
+          wdt:P69 ?university;
+          wdt:P27 ?citizenship;
+          wdt:P19 ?birthPlace.
+
+  ?university wdt:P17 ?uniCountry.
+  ?birthPlace wdt:P17 ?birthCountry.
+
+  FILTER(?birthCountry != ?uniCountry)
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}

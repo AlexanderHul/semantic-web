@@ -1,0 +1,28 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?countryName (GROUP_CONCAT(DISTINCT UCASE(?languageName); separator="|") as ?languages)
+WHERE {
+  # Отримуємо країни
+  ?country wdt:P31 wd:Q3624078;
+           rdfs:label ?countryName;
+           wdt:P30 ?continent.
+
+  # Фільтруємо континенти (Європа або Північна Америка)
+  ?continent wdt:P31 wd:Q5107.
+  VALUES ?continent { wd:Q46 wd:Q49 }
+
+  # Отримуємо мови
+  OPTIONAL {
+    ?country wdt:P37 ?language.
+    ?language rdfs:label ?languageName.
+    FILTER(LANG(?languageName) = "en")
+  }
+
+  # Фільтруємо назви країн англійською мовою і на літеру "A"
+  FILTER(LANG(?countryName) = "en")
+  FILTER(STRSTARTS(?countryName, "A"))
+}
+GROUP BY ?countryName
+ORDER BY ?countryName
